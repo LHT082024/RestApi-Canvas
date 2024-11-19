@@ -1,5 +1,7 @@
 ﻿namespace RestApi1.Models
 {
+
+    //a simple model class with one int and two string variables
     public class Anime
     {
         public int Id { get; set; }

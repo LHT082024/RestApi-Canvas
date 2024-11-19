@@ -3,10 +3,14 @@ using RestApi1.Models;
 
 namespace RestApi1.Controllers
 {
+    //adds the Api controller attribute which helps me limit the use of tags like "Frombody" or "fromQuery"
     [ApiController]
     [Route("[controller]")]
+
+    //the controller class it uses the base class "Controller" 
     public class AnimeController : Controller
     {
+        //getting the attributes from the anime model class and making a list giving value to the different attributes in the class
         private static List<Anime> animes = new List<Anime>()
         {
             new Anime{Id = 1, Title = "The Devil is a part timer", MyRating = "season 1 is a 10/10 perfect then they waited 9 years to make season 2 with half the budget and it shows :("},
@@ -19,14 +23,18 @@ namespace RestApi1.Controllers
            new Anime{Id = 8, Title = "Attack on titan", MyRating = "The biggest 'we live in a soceity' anime ever made where you think you know what's gonna happen then season 3 finishes and drags it in a completly new and bloody direction. Eren did nothing wrong/10" },
         };
 
+
+        //a httpGet method, the Ienumrable interface helps with looping through the list so all the objects can be displayed
         [HttpGet]
         public IEnumerable<Anime> Get()
         { 
             return animes; 
         }
 
+        // this method gives you the ability to create a new anime object and add it to the list. IActionreusult is used because it can return different types http responses 
+        //so it can give approprite feedback when the user tries something.
         [HttpPost]
-        public IActionResult Post([FromBody] Anime _animes)
+        public IActionResult Post(Anime _animes)
         {
             if (animes == null)
             {
@@ -36,6 +44,7 @@ namespace RestApi1.Controllers
             return CreatedAtAction(nameof(Post), new { id = _animes.Id, title = _animes.Title, myRating = _animes.MyRating}, _animes);
         }
 
+        //this method gives you the oppritunity to delete objects by finding the id of a certian object and deleting them.
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
