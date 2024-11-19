@@ -4,12 +4,12 @@ using RestApi1.Models;
 namespace RestApi1.Controllers
 {
     [ApiController]
-    [Route("[Anime]")]
+    [Route("[controller]")]
     public class AnimeController : Controller
     {
         private static List<Anime> _animes = new List<Anime>()
         {
-            new Anime{Id = 1, Title = "The Devli is a part timer", MyRating = "season 1 is a 10/10 perfect then they waited 9 years to make season 2 with half the budget and it shows :("},
+            new Anime{Id = 1, Title = "The Devil is a part timer", MyRating = "season 1 is a 10/10 perfect then they waited 9 years to make season 2 with half the budget and it shows :("},
             new Anime{Id = 2, Title = "Tokyo ghoul", MyRating = "if you were emo between 2007-2016 its either gonna be a 10/10 blast to past or a 0/10 blast to past. Either way dont watch season 2 or 3 they stop following the manga and cut the budget and it shows :(" },
             new Anime{Id = 3, Title = "Cyberpunk edgerunners", MyRating = "I really want to stay at your house :("},
             new Anime{Id = 4, Title = "Solo leveling", MyRating = "every fight is a blast and shadow demons are cool 8/10"},
@@ -20,7 +20,10 @@ namespace RestApi1.Controllers
         };
 
         [HttpGet]
-        public
+        public IEnumerable<Anime> Get()
+        { 
+            return _animes; 
+        }
 
     }   
 }
