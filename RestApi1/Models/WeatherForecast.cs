@@ -1,4 +1,4 @@
-namespace RestApi1
+namespace RestApi1.Models
 {
     public class WeatherForecast
     {

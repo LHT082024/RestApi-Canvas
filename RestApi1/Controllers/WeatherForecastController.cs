@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using RestApi1.Models;
 
 namespace RestApi1.Controllers
 {
