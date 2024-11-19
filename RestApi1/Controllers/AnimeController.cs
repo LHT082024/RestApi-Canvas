@@ -36,5 +36,19 @@ namespace RestApi1.Controllers
             return CreatedAtAction(nameof(Post), new { id = _animes.Id, title = _animes.Title, myRating = _animes.MyRating}, _animes);
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var anime = animes.FirstOrDefault(a => a.Id == id);
+            if (anime == null) 
+                {
+                return NotFound();
+
+                }
+
+            animes.Remove(anime);
+            return NoContent();
+        }
+
     }   
 }
