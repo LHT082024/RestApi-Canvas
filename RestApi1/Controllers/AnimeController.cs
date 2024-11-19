@@ -7,7 +7,7 @@ namespace RestApi1.Controllers
     [Route("[controller]")]
     public class AnimeController : Controller
     {
-        private static List<Anime> _animes = new List<Anime>()
+        private static List<Anime> animes = new List<Anime>()
         {
             new Anime{Id = 1, Title = "The Devil is a part timer", MyRating = "season 1 is a 10/10 perfect then they waited 9 years to make season 2 with half the budget and it shows :("},
             new Anime{Id = 2, Title = "Tokyo ghoul", MyRating = "if you were emo between 2007-2016 its either gonna be a 10/10 blast to past or a 0/10 blast to past. Either way dont watch season 2 or 3 they stop following the manga and cut the budget and it shows :(" },
@@ -22,7 +22,18 @@ namespace RestApi1.Controllers
         [HttpGet]
         public IEnumerable<Anime> Get()
         { 
-            return _animes; 
+            return animes; 
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] Anime _animes)
+        {
+            if (animes == null)
+            {
+                return BadRequest("It's you, not me");
+            }
+            animes.Add(_animes);
+            return CreatedAtAction(nameof(Post), new { id = _animes.Id, title = _animes.Title, myRating = _animes.MyRating}, _animes);
         }
 
     }   
