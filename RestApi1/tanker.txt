@@ -1,0 +1,12 @@
+En Api er en programvare som får andre programmer/databaser/nettsider til å kommunisere med hverandre. Det er en slags formidler av informasjon. 
+
+en RestApi er en Api som følger REST ariktekturen 
+
+Rest arikitekturen er en del retningslinjer for hvordan man skal bygge en webApi.
+
+fra alt det tilfeldige eg klarer å lese på nettet (og det lille eg faktisk forstår av det eg leser.) 
+så virker det som at en rest Api er oppatt av å være "statless" noe som vil si at hver request du gjør via Apien har all informasjon den trenger for å fullføre den requesten. 
+Å stykke en Api opp på denne måten gjør det enklere å adde nye servere og requests til Apien siden de ikke er like avhengig av hverandre 
+
+
+
