@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RestApi1.Models;
 
 namespace RestApi1.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[Anime]")]
     public class AnimeController : Controller
     {
-        private static List<AnimeController> _gods = new List<AnimeController>()
+        private static List<Anime> _animes = new List<Anime>();
         {
-            new AnimeController(
+            new AnimeController{}
         }
 
     }
